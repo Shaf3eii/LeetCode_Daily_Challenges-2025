@@ -40,7 +40,6 @@ public:
                 safeNodes.push_back(node);
             }
         }
-        sort(safeNodes.begin(), safeNodes.end()); // return the aswer in ascending order
         return safeNodes;
     }
 };
