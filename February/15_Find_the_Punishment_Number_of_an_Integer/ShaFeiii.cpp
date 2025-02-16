@@ -41,3 +41,26 @@ public:
         return ans;
     }
 };
+
+
+// Another Solution
+class Solution {
+    bool isPunishmentNumber(int st, string cur, int target) {
+        if (st == (int)cur.size()) return !target;
+        if (target < 0) return false;
+        for (int nd = st; nd < (int)cur.size(); ++nd) {
+            string num = cur.substr(st, nd - st + 1);
+            if (isPunishmentNumber(nd + 1, cur, target - stoi(num))) return true;
+        }
+        return false;
+    }
+public:
+    int punishmentNumber(int n) {
+        int ans = 0;
+        for (int i = 1; i <= n; ++i) {
+            int sq = i * i;
+            ans += isPunishmentNumber(0, to_string(sq), i) * sq;
+        }
+        return ans;
+    }
+};
