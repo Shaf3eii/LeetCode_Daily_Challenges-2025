@@ -29,3 +29,25 @@ public:
         return ans;
     }
 };
+
+
+
+// Another Solution
+class Solution { // Stack
+public:
+    string smallestNumber(string pattern) {
+        int n = pattern.size();
+        string ans;
+        stack<char> st;
+        for (int i = 0; i <= n; ++i) {
+            st.push((i + 1) + '0');
+            if (i == n or pattern[i] == 'I') {
+                while (!st.empty()) {
+                    ans.push_back(st.top());
+                    st.pop();
+                }
+            }
+        }
+        return ans;
+    }
+};
